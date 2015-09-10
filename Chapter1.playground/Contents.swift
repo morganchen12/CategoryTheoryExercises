@@ -12,14 +12,6 @@ func ∘<A, B, C>(f: A -> B, g: B -> C) -> A -> C {
     return { f(g($0)) }
 }
 
-// curry
-
-prefix operator ∘ {}
-// Xcode 7 beta 6 really does not like this line.
-func ∘<A, B, C>(g: A -> B) -> (B -> C) -> (A -> C) {
-    return { (f: B -> C) in return { (arg: A) in f(g(arg)) }}
-}
-
 // 3. Write a program that tries to test that your composition function respects identity.
 
 struct IntegerGenerator: GeneratorType {
